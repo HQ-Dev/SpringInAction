@@ -9,7 +9,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import java.util.regex.Pattern;
 
 /**
- * Created by huang on 2016/11/23.
+  * @ClassName: RootConfig
+  * @Description:
+  * @author Archy技术部-huang
+  * @date 2016年12月30日 下午09:45:39
  */
 @Configuration
 @ComponentScan(basePackages={"com"},

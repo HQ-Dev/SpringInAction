@@ -10,7 +10,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 /**
- * Created by huang on 2016/11/23.
+  * @ClassName: WebConfig
+  * @Description:
+  * @author Archy技术部-huang
+  * @date 2016年12月30日 下午09:44:41
  */
 @Configuration
 @EnableWebMvc  // 有此注解的类就是最简单的 Spring MVC 配置;  启用 Spring MVC
