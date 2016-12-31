@@ -27,4 +27,9 @@ public class SpitterControllerTest {
                 .andExpect(view().name("registerForm"));
     }
 
+    @Test
+    public void shouldProcessRegistration() throws Exception {
+
+    }
+
 }
