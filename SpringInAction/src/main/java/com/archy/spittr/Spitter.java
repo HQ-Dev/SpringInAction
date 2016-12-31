@@ -15,7 +15,7 @@ import org.hibernate.validator.constraints.Email;
  */
 public class Spitter {
 
-    private long id;
+    private Long id;
 
     @NotNull
     @Size(min=5, max=16)

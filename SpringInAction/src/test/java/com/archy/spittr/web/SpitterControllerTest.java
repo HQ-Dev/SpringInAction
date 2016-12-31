@@ -1,14 +1,14 @@
 package com.archy.spittr.web;
 
-import org.junit.Test;
-import org.springframework.test.web.servlet.MockMvc;
-
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.standaloneSetup;
-import static org.hamcrest.Matchers.*;
+import com.archy.spittr.Spitter;
+import com.archy.spittr.data.SpitterRepository;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
+
+import org.junit.Test;
+import org.springframework.test.web.servlet.MockMvc;
 
 /**
   * @ClassName: SpitterControllerTest
@@ -29,7 +29,23 @@ public class SpitterControllerTest {
 
     @Test
     public void shouldProcessRegistration() throws Exception {
+        SpitterRepository mockRepository = mock(SpitterRepository.class);
+        Spitter unsavedSpitter = new Spitter("archy","24hours","Jack","Bauer","archy@163.com");
+        Spitter savedSpitter = new Spitter(24L, "archy","24hours","Jack","Bauer","archy@163.com");
 
+        when(mockRepository.save(unsavedSpitter)).thenReturn(savedSpitter);
+
+        SpitterController controller = new SpitterController(mockRepository);
+        MockMvc mockMvc = standaloneSetup(controller).build();
+
+        mockMvc.perform(post("/spitter/register")
+                .param("firstName", "Jack")
+                .param("lastName", "Bauer")
+                .param("username", "archy")
+                .param("password","24hours")
+                .param("email", "archy@163.com")).andExpect(redirectedUrl("/spitter/archy"));
+
+          verify(mockRepository, atLeastOnce()).save(unsavedSpitter);
     }
 
 }

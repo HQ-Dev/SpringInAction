@@ -1,5 +1,7 @@
 package com.archy.spittr.data;
 
+import com.archy.spittr.Spitter;
+
 /**
   * @ClassName: SpitterRepository
   * @Description:
@@ -10,5 +12,5 @@ public interface SpitterRepository {
 
     Spitter save(Spitter spitter);
 
-    Spitter findByUsername();
+    Spitter findByUsername(String username);
 }

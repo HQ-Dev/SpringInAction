@@ -20,6 +20,7 @@
         Last Name: <input type="text" name="lastName" /><br/>
         Username: <input type="text" name="username" /><br/>
         Password: <input type="password" name="password" /><br/>
+        email: <input type="email" name="email" /><br/>
 
         <input type="submit" value="Register" />
     </form>
