@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 /**
- * Created by huang on 2016/11/23.
+  * @ClassName: SpittleController
+  * @Description:
+  * @author Archy技术部-huang
+  * @date 2016年12月30日 下午09:58:16
  */
 @Controller
 @RequestMapping("/spittles")
