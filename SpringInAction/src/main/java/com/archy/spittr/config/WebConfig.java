@@ -8,10 +8,11 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 /**
   * @ClassName: WebConfig
-  * @Description:
+  * @Description: Spring MVC 的 Java 配置类
   * @author Archy技术部-huang
   * @date 2016年12月30日 下午09:44:41
  */
@@ -28,8 +29,15 @@ public class WebConfig
         resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
         resolver.setExposeContextBeansAsAttributes(true);
+//        resolver.setViewClass(JstlView.class); 可以解析为 JSTLView 对象，使用 相关语法
         return resolver;
     }
+    /**
+     * XML 的配置方式如下：
+     * <bean id="viewResolver" class="org.springFramework.web.servlet.view.InternalResourceViewResolver"
+     *  p:prefix="/WEB-INF/views/"
+     *  p:suffix=".jsp" />
+     */
 
     /**
      * 配置静态资源的处理
