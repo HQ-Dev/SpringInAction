@@ -7,7 +7,7 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
-<%@ page session="false" %>
+<%@ page session="false" pageEncoding="utf-8" %>
 <html>
 <head>
     <title>Title</title>
@@ -27,15 +27,16 @@
     <%--</form>--%>
 
     <sf:form method="post" commandName="spitter"> <!-- 通过 commandName 来构建针对某个模型对象的上下文信息:  这样就需要模型中必须有一个 key 为 spitter 的对象，否则表单不能正常渲染 -> 需要去 SpitterController 中进行修改 -->
-        First Name: <sf:input path="firstName" /><br/>
+        <sf:errors path="*" element="div" cssClass="errors" />
+        First Name: <sf:input path="firstName" cssClass="error"/><br/>
             <sf:errors path="firstName" />
-        Last Name: <sf:input path="lastName" /><br/>
+        Last Name: <sf:input path="lastName" cssClass="error"/><br/>
             <sf:errors path="lastName" />
-        Email: <sf:input path="email" /><br/>
+        Email: <sf:input path="email" cssClass="error"/><br/>
             <sf:errors path="email" />
-        Username: <sf:input path="username" /><br/>
+        Username: <sf:input path="username" cssClass="error"/><br/>
             <sf:errors path="username" />
-        Password: <sf:password path="password" /><br/>
+        Password: <sf:password path="password" cssClass="error"/><br/>
             <sf:errors path="password" />
         <input type="submit" value="Register" />
     </sf:form>
