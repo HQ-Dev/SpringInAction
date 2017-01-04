@@ -2,6 +2,9 @@ package com.archy.spittr.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
+
 /**
  * Created by huang on 2016/11/23.
  */
@@ -39,4 +42,9 @@ public class SpittrWebAppInitializer
         return new String[] { "/" };
     }
 
+    @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(
+                new MultipartConfigElement("/tmp/spittr/uploads"));
+    }
 }
