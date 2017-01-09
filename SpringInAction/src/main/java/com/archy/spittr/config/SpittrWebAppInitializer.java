@@ -42,9 +42,10 @@ public class SpittrWebAppInitializer
         return new String[] { "/" };
     }
 
+    // 配置 multipart 解析器
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
         registration.setMultipartConfig(
-                new MultipartConfigElement("/tmp/spittr/uploads"));
+                new MultipartConfigElement("/tmp/spittr/uploads", 2097152, 4194304, 0));
     }
 }

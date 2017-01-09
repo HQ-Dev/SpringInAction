@@ -1,6 +1,7 @@
 package com.archy.spittr.config;
 
 import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.Registration;
 import javax.servlet.ServletContext;
